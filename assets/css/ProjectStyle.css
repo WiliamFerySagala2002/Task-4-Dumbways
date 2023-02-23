@@ -1,0 +1,184 @@
+.container-add-project .title-add-project {
+  text-align: center;
+}
+
+.deadline-project {
+  display: flex;
+  gap: 10px;
+}
+
+.deadline-project .start,
+.deadline-project .end {
+  width: 100%;
+}
+
+input#start,
+input#end {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 5px 0 #0000000c;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.container-add-project .tecno-check {
+  width: 100%;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  width: 100%;
+  align-items: center;
+}
+
+.reactjs,
+.nodejs,
+.nextjs,
+.typescript {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.reactjs label,
+.nodejs label,
+.nextjs label,
+.typescript label {
+  margin: auto 0;
+  color: rgb(93, 93, 93);
+}
+
+.reactjs input[type="checkbox"],
+.nodejs input[type="checkbox"],
+.nextjs input[type="checkbox"],
+.typescript input[type="checkbox"] {
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 1px 0 #0000000c;
+  border: none;
+}
+
+.tecno-check {
+  margin-bottom: 30px;
+}
+
+.add-image-project {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background: #f4f3f3;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 1px 0 #0000000c;
+}
+
+.add-image-project .p {
+  background: #6a6a6a32;
+  height: 100%;
+  width: 100px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.add-img {
+  padding: 8px;
+}
+
+.add-image-project .p p {
+  font-size: 15px;
+}
+
+.add-image-project label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 0;
+}
+
+.uppercase {
+  text-transform: capitalize;
+}
+
+.buttonSubmit button {
+  padding: 10px 16px !important;
+  font-weight: 500;
+  font-size: 0.7rem;
+}
+
+.buttonSubmit button:hover {
+  background: #ff0000;
+}
+
+.project-list {
+  background: #fff;
+  width: 100vw;
+  height: 80%;
+  margin-top: 100px;
+  padding: 50px;
+}
+
+.project-list .container-project-list {
+  background: #908e8e;
+}
+
+.project-list .project-list-title {
+  text-align: center;
+}
+
+/* Tecnologies Icons */
+.icon-react {
+  background-image: url("assets/img/reactjs.png");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0; /* style default */
+}
+
+.icon-node {
+  background-image: url("assets/img/nodejs.png");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0; /* style default */
+}
+
+.icon-next {
+  background-image: url("assets/img/nextjs.png");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0; /* style default */
+}
+
+.icon-typescript {
+  background-image: url("assets/img/Typescript.png");
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0; /* style default */
+}

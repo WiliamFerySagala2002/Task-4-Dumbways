@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/ProjectStyle.css" />
+    <link rel="stylesheet" href="/assets/css/formStyle.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <header>
+        <div class="logo">
+          <h3>DW</h3>
+          <span>DUMBWAYS.ID</span>
+        </div>
+        <div class="nav-list">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">My Project</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="button">
+        <a href="contact.html">Contact me</a>
+      </div>
+    </nav>
+    <main>
+      <section>
+        <div class="container-add-project">
+          <div class="title-add-project">
+            <h1 class="uppercase">ADD MY PROJECT</h1>
+          </div>
+          <form action="">
+            <label for="title" class="uppercase">Project name</label>
+            <input type="text" name="ProjectName" id="title" />
+            <div class="deadline-project">
+              <div class="start">
+                <label for="start" class="uppercase">Start date</label>
+                <input type="date" name="start" id="start" />
+              </div>
+              <div class="end">
+                <label for="end" class="uppercase">End date</label>
+                <input type="date" name="end" id="end" />
+              </div>
+            </div>
+            <label for="article" class="uppercase">Description</label>
+            <textarea name="article" id="article" cols="30" rows="5"></textarea>
+            <div class="tecno-check">
+              <label for="technologies" class="uppercase">tecnologies</label>
+              <div class="checkbox">
+                <div class="row">
+                  <div class="reactjs">
+                    <input type="checkbox" name="technologies" id="reactjs" />
+                    <label for="reactjs" class="uppercase">React js</label>
+                  </div>
+                  <div class="nodejs">
+                    <input type="checkbox" name="technologies" id="nodejs" />
+                    <label for="nodejs" class="uppercase">Node Js</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="nextjs">
+                    <input type="checkbox" name="technologies" id="nextjs" />
+                    <label for="nextjs" class="uppercase">Next Js</label>
+                  </div>
+                  <div class="typescript">
+                    <input
+                      type="checkbox"
+                      name="technologies"
+                      id="typescript"
+                    />
+                    <label for="typescript" class="uppercase">TypeScript</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="add-img-project-group">
+              <div class="title-upload-img">
+                <label for="" class="uppercase">upload image</label>
+              </div>
+              <div class="add-image-project">
+                <div class="p"><p class="uppercase">choose</p></div>
+                <div class="add-img">
+                  <label for="add-img">
+                    <i class="fa-solid fa-upload"></i>
+                  </label>
+                </div>
+                <input type="file" id="add-img" hidden />
+              </div>
+            </div>
+
+            <input type="submit" value="Tambah Proyek" />
+          </form>
+        </div>
+      </section>
+      <section class="project-list">
+        <div class="container-project-list">
+          <div class="project-list-title">
+            <h1>My Project</h1>
+          </div>
+          <div id="cardContainer"></div>
+        </div>
+      </section>
+    </main>
+    <script src="assets/js/project.js"></script>
+  </body>
+</html>
