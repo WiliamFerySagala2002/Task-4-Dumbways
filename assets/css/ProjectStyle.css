@@ -1,184 +1,235 @@
-.container-add-project .title-add-project {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700;800&display=swap");
+
+.form-wrapper {
+  padding: 0 100px;
+  width: 80%;
 }
 
-.deadline-project {
-  display: flex;
-  gap: 10px;
-}
-
-.deadline-project .start,
-.deadline-project .end {
-  width: 100%;
-}
-
-input#start,
-input#end {
-  width: 100%;
-  padding: 10px;
-  border-radius: 3px;
-  border: none;
-  box-shadow: 0 5px 0 #0000000c;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-.container-add-project .tecno-check {
-  width: 100%;
-}
-
-.checkbox {
+.form-wrapper form,
+.start-end,
+.start,
+.end {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
-.row {
-  display: flex;
+.form-wrapper form {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.start-end {
+  width: 100%;
   flex-direction: row;
-  gap: 100px;
-  width: 100%;
-  align-items: center;
 }
 
-.reactjs,
-.nodejs,
-.nextjs,
-.typescript {
+.start,
+.end {
   width: 100%;
+  margin: 0 0 0 5px;
+}
+
+input#title,
+input#start,
+input#end,
+textarea#info {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px #00000037;
+  font-size: 1.2rem;
+}
+
+.techno {
   display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.techno .techno-wrapper {
+  display: flex;
+  gap: 100px;
+}
+.techno .techno-wrapper .row {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
-.reactjs label,
-.nodejs label,
-.nextjs label,
-.typescript label {
-  margin: auto 0;
-  color: rgb(93, 93, 93);
+.techno .row label {
+  margin: 0 10px;
 }
 
-.reactjs input[type="checkbox"],
-.nodejs input[type="checkbox"],
-.nextjs input[type="checkbox"],
-.typescript input[type="checkbox"] {
-  border-radius: 3px;
-  border: none;
-  box-shadow: 0 1px 0 #0000000c;
-  border: none;
+.box {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #fff;
 }
 
-.tecno-check {
-  margin-bottom: 30px;
+.check {
+  display: flex;
 }
 
-.add-image-project {
-  width: 100%;
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + label:before {
+  background-color: white;
+  content: "";
+  display: inline-block;
   font-size: 20px;
-  font-weight: 400;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  background: #f4f3f3;
-  border: 1px solid #c4c4c4;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0 1px 0 #0000000c;
-}
-
-.add-image-project .p {
-  background: #6a6a6a32;
-  height: 100%;
-  width: 100px;
-  padding: 8px;
+  height: 20px;
+  border-radius: 4px;
+  width: 20px;
+  line-height: 20px;
+  vertical-align: middle;
   text-align: center;
-  border-radius: 8px;
+  margin: 0 20px 0 0;
 }
 
-.add-img {
-  padding: 8px;
+input[type="checkbox"]:checked + label:before {
+  content: "\2713";
+  color: #00f;
 }
 
-.add-image-project .p p {
-  font-size: 15px;
-}
-
-.add-image-project label {
-  cursor: pointer;
+.upload-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 25px;
+}
+
+.upload-wrapper .file-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #fff;
   justify-content: space-between;
-  margin: auto 0;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 10px 0 0;
+  box-shadow: 0 4px 4px #00000022;
 }
 
-.uppercase {
-  text-transform: capitalize;
+.upload-wrapper .file-wrapper .label {
+  background: #00000021;
+  height: 100%;
+  padding: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
-.buttonSubmit button {
-  padding: 10px 16px !important;
+.container-upload {
+  display: grid;
+  justify-content: center;
+}
+
+.upload-wrapper .file-wrapper .icon-upload .container-upload img {
+  height: 20px;
+}
+
+.buttonProject {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.buttonProject input {
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 4px 4px #00000041;
+  background: #000;
+  color: #fff;
   font-weight: 500;
-  font-size: 0.7rem;
 }
 
-.buttonSubmit button:hover {
+.buttonProject button:hover {
   background: #ff0000;
 }
 
-.project-list {
+label {
+  font-weight: bold;
+}
+
+.row label {
+  color: #6e6e6e;
+}
+
+.container-project {
+  width: 100%;
   background: #fff;
-  width: 100vw;
-  height: 80%;
-  margin-top: 100px;
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
 
-.project-list .container-project-list {
-  background: #908e8e;
+.wrapperProject {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.project-list .project-list-title {
-  text-align: center;
+.wrapper {
+  width: 400px;
+  height: 550px;
+  /* background: #000; */
+  margin: 20px;
 }
 
-/* Tecnologies Icons */
-.icon-react {
-  background-image: url("assets/img/reactjs.png");
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 4px;
-  opacity: 0; /* style default */
+.content-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.icon-node {
-  background-image: url("assets/img/nodejs.png");
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 4px;
-  opacity: 0; /* style default */
+.content-card .card-img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
 }
 
-.icon-next {
-  background-image: url("assets/img/nextjs.png");
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 4px;
-  opacity: 0; /* style default */
+.content-card .card-img img {
+  object-fit: cover;
 }
 
-.icon-typescript {
-  background-image: url("assets/img/Typescript.png");
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 4px;
-  opacity: 0; /* style default */
+.card {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 4px 4px #00000044;
+}
+
+.tech-icons-card {
+  display: flex;
+  gap: 10px;
+}
+
+.tech-icons-card i {
+  font-size: 1.85rem;
+  font-weight: 500;
+}
+
+.btn-card-group {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-card-group button {
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #000;
+  font-weight: 700;
+  font-size: 1.01rem;
 }

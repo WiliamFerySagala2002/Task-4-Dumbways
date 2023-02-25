@@ -1,0 +1,215 @@
+<div class="wrapper">
+          <div class="card">
+            <div class="content-card">
+              <div class="card-img">
+                <img
+                  src="/assets/img/federica-galli-_xhZcNsqPhQ-unsplash.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="name">
+                <h2>Wiliam Sagala</h2>
+                <p>durasi : 1 bulan</p>
+              </div>
+              <div class="text-info">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Nobis, alias.
+                </p>
+              </div>
+              <div class="tech-icons-card">
+                <i class="fa-brands fa-vuejs"></i>
+                <i class="fa-brands fa-vuejs"></i>
+                <i class="fa-brands fa-java"></i>
+                <i class="fa-brands fa-vuejs"></i>
+              </div>
+              <div class="btn-card-group">
+                <button>edit</button>
+                <button>delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+let classIcons = (i) => {
+      if ((i = 1)) {
+        return "nodejs";
+      }
+      if ((i = 2)) {
+        return "nextjs";
+      }
+      if ((i = 3)) {
+        return "reactjs";
+      }
+      if ((i = 4)) {
+        return "nodejs";
+      }
+    };
+
+
+
+          const contenInfo = document.createElement("div");
+  contenInfo.classList.add("info-card");
+  contentCard.appendChild(contenInfo);
+
+  const nameProject = document.createElement("h2");
+  nameProject.innerText = title;
+  contenInfo.appendChild(nameProject);
+
+  contentProject.appendChild(wrapper);
+
+
+  const form = document.querySelector(".login");
+const contentProject = document.querySelector(".wrapperProject");
+const inputTitle = document.getElementById("title");
+const inputTimeStart = document.getElementById("start");
+const inputDec = document.getElementById("info");
+const inputTimeEnd = document.getElementById("end");
+const inputAddImg = document.getElementById("image");
+const checkNode = document.getElementById("node");
+const checkNext = document.getElementById("next");
+const checkReact = document.getElementById("react");
+const checkTypescript = document.getElementById("typescript");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = inputTitle.value;
+  const addImg = inputAddImg.files;
+  addImg.src = URL.createObjectURL(addImg[0].src);
+
+  const wrapper = document.createElement("div");
+  wrapper.classList.add("wrapper");
+
+  const card = document.createElement("div");
+  card.classList.add("card");
+  wrapper.appendChild(card);
+
+  const cardContent = document.createElement("div");
+  cardContent.classList("content-card");
+  card.appendChild(cardContent);
+
+  const contentImg = document.createElement("div");
+  contentImg.classList("card-img");
+  contentImg.innerHTML = `<img src=${addImg} alt="${title} />"`;
+  contentCard.appendChild(contentImg);
+});
+
+
+addImg.src = URL.createObjectURL(addImg[0]);
+
+
+
+
+
+
+
+const form = document.querySelector(".login");
+const dataProjects = [];
+const contentProject = document.querySelector(".wrapperProject");
+const inputTitle = document.getElementById("title");
+const inputTimeStart = document.getElementById("start");
+const inputDec = document.getElementById("info");
+const inputTimeEnd = document.getElementById("end");
+const inputAddImg = document.querySelector(".container-upload");
+const fileInputAddImg = document.getElementById("image").file;
+const technologies = Array.from(
+  document.querySelectorAll('input[type="checkbox"]')
+);
+
+const checkNext = document.getElementById("next");
+const checkReact = document.getElementById("react");
+const checkTypescript = document.getElementById("typescript");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let img = inputAddImg;
+  img = URL.createObjectURL(img[0]);
+  let dataProject = {
+    nameProject: inputTitle.value,
+    starDate: inputTimeStart.value,
+    endDate: inputTimeEnd.value,
+    info: inputDec.value,
+    img: img,
+    technologies: technologies,
+  };
+
+  dataProjects.push(dataProject);
+  addProject();
+});
+
+const addProject = () => {
+  let wrapper = "";
+  dataProjects.forEach((dataProject) => {
+    wrapper += `<div class="card">
+    <div class="content-card">
+      <div class="card-img">
+        <img
+          src="${dataProject.img}"
+          alt="${dataProject.nameProject}"
+        />
+      </div>
+      <div class="info-card">
+        <div class="name mt">
+          <h2>${dataProject.nameProject}</h2>
+          <p>durasi : ${duration(dataProject.starDate, dataProject.endDate)}</p>
+        </div>
+        <div class="text-info mt">
+          <p class="mt">
+          ${dataProject.info}
+          </p>
+        </div>
+        <div class="tech-icons-card mt">
+          ${getTech(dataProject.technologies)}
+        </div>
+      </div>
+      <div class="btn-card-group">
+        <button>edit</button>
+        <button>delete</button>
+      </div>
+    </div>
+  </div>`;
+    contentProject.appendChild(wrapper);
+  });
+};
+
+const duration = (startDate, endDate) => {
+  const dateStart = new Date(startDate).getTime();
+  const dateEnd = new Date(endDate).getTime();
+  const selisih = dateEnd - dateStart;
+
+  let day = selisih / (1000 * 60 * 60 * 24);
+  const month = Math.floor(selisih / (1000 * 60 * 60 * 24 * 30));
+
+  const result =
+    day < 30
+      ? day === 1
+        ? `Duration : ${day} day`
+        : `Duration : ${day} days`
+      : month === 1
+      ? `Duration : ${month} month`
+      : `Duration : ${month} months`;
+
+  return result;
+};
+
+const getTech = (technologies) => {
+  let techIcons = "";
+  technologies.forEach((s) => {
+    if ((s = 0).checked) {
+      techIcons += `<div class="nodejs"></div>`;
+    } else if ((s = 1).checked) {
+      techIcons += ` <div class="nextjs"></div>`;
+    } else if ((s = 2).checked) {
+      techIcons += `<div class="reactjs"></div>`;
+    } else if ((s = 3).checked) {
+      techIcons += ` <div class="typesriptjs"></div>`;
+    } else {
+      techIcons = "";
+    }
+  });
+
+  return techIcons;
+};

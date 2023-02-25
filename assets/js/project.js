@@ -1,66 +1,103 @@
-let projectDatas = [];
+const form = document.querySelector(".login");
+const dataProjects = [];
+const contentProject = document.querySelector(".wrapperProject");
+const inputTitle = document.getElementById("title");
+const inputTimeStart = document.getElementById("start");
+const inputDec = document.getElementById("info");
+const inputTimeEnd = document.getElementById("end");
+const inputAddImg = document.querySelector(".container-upload");
+const fileInputAddImg = document.getElementById("image");
+const technologies = Array.from(
+  document.querySelectorAll('input[type="checkbox"]')
+);
 
-const form = document.querySelector("form");
-form.addEventListener("submit", addProject);
+const checkNext = document.getElementById("next");
+const checkReact = document.getElementById("react");
+const checkTypescript = document.getElementById("typescript");
 
-function addProject(e) {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  let title = document.getElementById("title").value;
-  let start = document.getElementById("start").value;
-  let end = document.getElementById("end").value;
-  let technologies = document.querySelectorAll(
-    'input[name="technology"]:checked'
-  );
-  let image = document.getElementById("add-img").value;
+  let img = fileInputAddImg.files[0];
+  img = URL.createObjectURL(img);
+  let dataProject = {
+    nameProject: inputTitle.value,
+    starDate: inputTimeStart.value,
+    endDate: inputTimeEnd.value,
+    info: inputDec.value,
+    img: img,
+    technologies: technologies,
+  };
 
-  const card = document.createElement("div");
-  card.classList.add("card");
+  dataProjects.push(dataProject);
+  addProject();
+});
 
-  const cardImage = document.createElement("img");
-  cardImage.src = URL.createObjectURL(image);
-  cardImage.alt = title;
-  card.appendChild(cardImage);
+const addProject = () => {
+  let wrapper = "";
 
-  const cardContent = document.createElement("div");
-  cardContent.classList.add("card-content");
-  card.appendChild(cardContent);
-
-  const cardTitle = document.createElement("h2");
-  cardTitle.textContent = title;
-  cardContent.appendChild(cardTitle);
-
-  const cardDate = document.createElement("p");
-  cardDate.textContent = `Tanggal: ${start} - ${end}`;
-  cardContent.appendChild(cardDate);
-
-  const cardTechnologies = document.createElement("p");
-  technologies.forEach((technology, index) => {
-    const technologyIcon = document.createElement("i");
-    technologyIcon.classList.add("material-icons"); // Ubah sesuai dengan library icon yang Anda gunakan
-    technologyIcon.textContent = getTechnologyIcon(technology.value);
-
-    if (index > 0) {
-      cardTechnologies.innerHTML += " ";
-    }
-    cardTechnologies.appendChild(technologyIcon);
+  dataProjects.forEach((dataProject) => {
+    wrapper += `<div class = "wrapper">
+    <div class="card">
+    <div class="content-card">
+      <div class="card-img">
+        <img
+          src="${dataProject.img}"
+          alt="${dataProject.nameProject}"
+        />
+      </div>
+        <div class="name mt">
+          <h2>${dataProject.nameProject}</h2>
+          <p>durasi : ${duration(dataProject.starDate, dataProject.endDate)}</p>
+        </div>
+        <div class="text-info mt">
+          <p class="mt">
+          ${dataProject.info}
+          </p>
+        </div>
+        <div class="tech-icons-card mt">
+          ${getTech(dataProject.technologies)}
+        </div>
+      <div class="btn-card-group">
+        <button>edit</button>
+        <button>delete</button>
+      </div>
+    </div>
+  </div>
+    </div>`;
+    contentProject.innerHTML = wrapper;
   });
-  cardContent.appendChild(cardTechnologies);
+};
 
-  const cardContainer = document.querySelector("#cardContainer");
-  cardContainer.appendChild(card);
-}
+const duration = (startDate, endDate) => {
+  const dateStart = new Date(startDate).getTime();
+  const dateEnd = new Date(endDate).getTime();
+  const selisih = dateEnd - dateStart;
 
-function getTechnologyIcon(technology) {
-  switch (technology) {
-    case "React JS":
-      return "code";
-    case "Node JS":
-      return "dns";
-    case "Next JS":
-      return "next_plan";
-    case "TypeScript":
-      return "subject";
-    default:
-      return "code";
-  }
-}
+  let day = selisih / (1000 * 60 * 60 * 24);
+  const month = Math.floor(selisih / (1000 * 60 * 60 * 24 * 30));
+
+  const result =
+    day < 30
+      ? day === 1
+        ? ` ${day} day`
+        : ` ${day} days`
+      : month === 1
+      ? ` ${month} month`
+      : ` ${month} months`;
+
+  return result;
+};
+
+const getTech = (technologies) => {
+  technologies[0].dataset.icon = "fa-brands fa-node";
+  technologies[1].dataset.icon = "fa-brands fa-vuejs";
+  technologies[2].dataset.icon = "fa-brands fa-react";
+  technologies[3].dataset.icon = "fa-brands fa-java";
+
+  let techIcons = "";
+  technologies.forEach((s) => {
+    techIcons += s.checked ? `<i class='${s.dataset.icon}'></i>` : "";
+  });
+
+  return techIcons;
+};
